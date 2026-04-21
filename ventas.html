@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: #ffffff}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none; background-color: #ffffff}
+    span.s2 {font-kerning: none}
+    span.s3 {font: 12.0px 'Apple Color Emoji'; font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p2"><span class="s2">&lt;html lang="es"&gt;</span></p>
+<p class="p2"><span class="s2">&lt;head&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;title&gt;App Inmobiliaria&lt;/title&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>.depto-card { border-left: 5px solid #3b82f6; transition: all 0.2s; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>.depto-card:active { transform: scale(0.98); background-color: #f3f4f6; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>.vendido { border-left-color: #ef4444; }</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
+<p class="p2"><span class="s2">&lt;/head&gt;</span></p>
+<p class="p2"><span class="s2">&lt;body class="bg-gray-100 p-4"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;div class="max-w-md mx-auto"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>&lt;h1 class="text-2xl font-bold text-center mb-2 text-blue-800"&gt;Control de Deptos&lt;/h1&gt;</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">        </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>&lt;div class="flex justify-end mb-4"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>&lt;button onclick="exportarExcel()" class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow text-sm font-bold flex items-center gap-2"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s3">📥</span><span class="s2"> Exportar Excel</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>&lt;/button&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>&lt;div id="form-container" class="bg-white p-4 rounded-xl shadow-lg mb-6 hidden border-2 border-blue-500"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>&lt;h2 id="edit-title" class="font-bold mb-4 text-lg"&gt;Editando Depto&lt;/h2&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>&lt;input type="hidden" id="current-id"&gt;</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>&lt;label class="block text-xs font-bold text-gray-500 mb-1"&gt;COMPRADOR&lt;/label&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>&lt;input type="text" id="comprador" class="w-full mb-3 p-2 border rounded"&gt;</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>&lt;label class="block text-xs font-bold text-gray-500 mb-1"&gt;VENDEDOR&lt;/label&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>&lt;input type="text" id="vendedor" class="w-full mb-3 p-2 border rounded"&gt;</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>&lt;label class="block text-xs font-bold text-gray-500 mb-1"&gt;PAGOS REALIZADOS ($)&lt;/label&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>&lt;input type="number" id="pagos" class="w-full mb-3 p-2 border rounded"&gt;</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>&lt;label class="block text-xs font-bold text-gray-500 mb-1"&gt;NOTAS&lt;/label&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>&lt;textarea id="notas" class="w-full mb-4 p-2 border rounded h-20"&gt;&lt;/textarea&gt;</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>&lt;div class="flex gap-2"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>&lt;button onclick="guardar()" class="bg-green-600 text-white flex-1 p-3 rounded-lg font-bold"&gt;Guardar&lt;/button&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>&lt;button onclick="cerrarForm()" class="bg-gray-400 text-white flex-1 p-3 rounded-lg font-bold"&gt;Cancelar&lt;/button&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>&lt;div id="lista" class="grid gap-3"&gt;&lt;/div&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>// Inicializar datos</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>let departamentos = JSON.parse(localStorage.getItem('deptos')) ||<span class="Apple-converted-space"> </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>Array.from({length: 16}, (_, i) =&gt; ({</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>id: i + 1, comprador: '', vendedor: '', pagos: 0, notas: ''</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>}));</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>function render() {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>const lista = document.getElementById('lista');</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>lista.innerHTML = '';</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>departamentos.forEach(d =&gt; {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>const isVendido = d.comprador &amp;&amp; d.comprador.trim() !== "";</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>lista.innerHTML += `</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>&lt;div onclick="editar(${d.id})" class="depto-card ${isVendido ? 'vendido' : ''} bg-white p-4 rounded shadow flex justify-between items-center cursor-pointer"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span>&lt;div&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span>&lt;span class="font-bold text-blue-600"&gt;Depto ${d.id}&lt;/span&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span>&lt;p class="text-sm text-gray-500"&gt;${isVendido ? d.comprador : 'Disponible'}&lt;/p&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span>&lt;div class="text-right text-sm"&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span>&lt;p class="font-bold text-green-700"&gt;$${d.pagos}&lt;/p&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span>&lt;span class="text-[10px] uppercase text-gray-400 font-bold italic"&gt;Tocar para editar&lt;/span&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>`;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>// Guardar en memoria del teléfono</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>localStorage.setItem('deptos', JSON.stringify(departamentos));</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>function editar(id) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>const d = departamentos.find(x =&gt; x.id === id);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>document.getElementById('current-id').value = id;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>document.getElementById('edit-title').innerText = `Editando Depto ${id}`;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>document.getElementById('comprador').value = d.comprador;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>document.getElementById('vendedor').value = d.vendedor;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>document.getElementById('pagos').value = d.pagos;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>document.getElementById('notas').value = d.notas;</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>document.getElementById('form-container').classList.remove('hidden');</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>window.scrollTo({top: 0, behavior: 'smooth'});</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>function guardar() {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>const id = parseInt(document.getElementById('current-id').value);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>const index = departamentos.findIndex(x =&gt; x.id === id);</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>departamentos[index] = {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>id: id,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>comprador: document.getElementById('comprador').value,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>vendedor: document.getElementById('vendedor').value,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>pagos: document.getElementById('pagos').value || 0,</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>notas: document.getElementById('notas').value</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p3"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>cerrarForm();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>render();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>function cerrarForm() {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>document.getElementById('form-container').classList.add('hidden');</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>function exportarExcel() {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>let contenido = "Departamento,Comprador,Vendedor,Pagos,Notas\n";</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>departamentos.forEach(d =&gt; {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>const notaLimpia = d.notas.replace(/,/g, ".").replace(/\n/g, " ");</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span>contenido += `${d.id},${d.comprador},${d.vendedor},${d.pagos},${notaLimpia}\n`;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>const blob = new Blob(["\ufeff" + contenido], { type: 'text/csv;charset=utf-8;' });</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>const link = document.createElement("a");</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>const url = URL.createObjectURL(blob);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>link.href = url;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>link.setAttribute("download", "ventas_inmobiliaria.csv");</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>document.body.appendChild(link);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>link.click();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>document.body.removeChild(link);</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p3"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>// Carga inicial</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>render();</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
+<p class="p2"><span class="s2">&lt;/body&gt;</span></p>
+<p class="p2"><span class="s2">&lt;/html&gt;</span></p>
+</body>
+</html>
